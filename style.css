@@ -10,13 +10,28 @@
 body {
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     color: #222;
-    transition: background 0.4s, color 0.4s;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
 /* Dark Mode */
 .dark-mode {
     background: linear-gradient(135deg, #121212, #1a1a1a);
     color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    border-radius: 10px;
 }
 
 /* Navigation Bar */
@@ -78,6 +93,7 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -86,18 +102,17 @@ nav ul li a:hover {
     color: white;
     padding: 20px;
     border-radius: 10px;
+    animation: fadeInUp 1.5s ease-in-out;
 }
 
 .hero h2 {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: bold;
-    animation: fadeIn 2s ease-in-out;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 10px;
-    animation: fadeIn 2.5s ease-in-out;
 }
 
 /* Modern Call-to-Action Button */
@@ -105,13 +120,14 @@ nav ul li a:hover {
     background: linear-gradient(135deg, #ff9800, #ff5722);
     color: #fff;
     border: none;
-    padding: 14px 28px;
-    font-size: 20px;
+    padding: 16px 32px;
+    font-size: 22px;
     border-radius: 30px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     margin-top: 15px;
     box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+    animation: pulse 2s infinite;
 }
 
 .cta-button:hover {
@@ -127,7 +143,7 @@ nav ul li a:hover {
 }
 
 .feature-box {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
@@ -141,24 +157,32 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Live Traffic Updates */
-.live-traffic {
-    text-align: center;
-    padding: 60px;
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.5);
 }
 
-.traffic-display {
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.7);
 }
 
 /* AI Chatbot */
-.chatbot {
-    text-align: center;
-    padding: 60px;
-}
-
 .chatbox-container {
     width: 360px;
     position: fixed;
@@ -169,7 +193,6 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .chatbox {
@@ -196,7 +219,6 @@ nav ul li a:hover {
     padding: 12px;
     border: none;
     border-radius: 10px;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 #send-message {
@@ -206,60 +228,18 @@ nav ul li a:hover {
     padding: 12px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-#send-message:hover {
-    background: linear-gradient(135deg, #e65100, #bf360c);
-}
-
-/* Contact Section */
-.contact {
-    text-align: center;
-    padding: 60px;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     background: #1e88e5;
     color: white;
     font-size: 18px;
-    border-top: 3px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Floating Action Button */
-.fab {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background: linear-gradient(135deg, #ff9800, #ff5722);
-    color: white;
-    border: none;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.5);
-}
-
-.fab:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.7);
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
