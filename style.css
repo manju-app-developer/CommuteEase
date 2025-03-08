@@ -8,7 +8,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     color: #222;
     transition: background 0.4s, color 0.4s;
 }
@@ -25,7 +25,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
     color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-bottom: 3px solid rgba(255, 255, 255, 0.2);
@@ -36,6 +36,30 @@ header h1 {
     font-weight: bold;
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+}
+
+/* Dark Mode Toggle */
 #toggle-mode {
     background: rgba(255, 255, 255, 0.2);
     border: none;
@@ -58,7 +82,7 @@ header h1 {
     justify-content: center;
     text-align: center;
     height: 85vh;
-    background: linear-gradient(135deg, #42a5f5, #1976d2);
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -96,17 +120,31 @@ header h1 {
     box-shadow: 0 7px 20px rgba(255, 87, 34, 0.6);
 }
 
-/* Traffic Simulation Section */
-.traffic-section {
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    padding: 30px;
+    width: 80%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: scale(1.05);
+}
+
+/* Live Traffic Updates */
+.live-traffic {
     text-align: center;
     padding: 60px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin: 50px auto;
-    border-radius: 20px;
-    width: 85%;
-    animation: fadeInUp 1s ease-in-out;
 }
 
 .traffic-display {
@@ -115,7 +153,12 @@ header h1 {
     color: #333;
 }
 
-/* Glassmorphism Chatbox */
+/* AI Chatbot */
+.chatbot {
+    text-align: center;
+    padding: 60px;
+}
+
 .chatbox-container {
     width: 360px;
     position: fixed;
@@ -140,10 +183,6 @@ header h1 {
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 10px;
-}
-
-.chatbox p strong {
-    font-weight: bold;
 }
 
 .chat-input {
@@ -172,6 +211,12 @@ header h1 {
 
 #send-message:hover {
     background: linear-gradient(135deg, #e65100, #bf360c);
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 60px;
 }
 
 /* Footer */
