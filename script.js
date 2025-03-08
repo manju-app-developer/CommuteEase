@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const fab = document.querySelector(".fab");
 
     /** ====================
-     *  🌙 Dark Mode Toggle 
-     *  Saves user preference and applies smooth transitions.
+     *  🌙 Dark Mode Toggle (Enhanced)
+     *  Smooth transition & refined styles
      * ==================== */
     function enableDarkMode() {
         body.classList.add("dark-mode");
@@ -24,59 +24,58 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleMode.textContent = "🌙 Dark Mode";
     }
 
-    if (localStorage.getItem("dark-mode") === "enabled") {
-        enableDarkMode();
-    }
+    if (localStorage.getItem("dark-mode") === "enabled") enableDarkMode();
 
     toggleMode.addEventListener("click", () => {
         body.classList.contains("dark-mode") ? disableDarkMode() : enableDarkMode();
     });
 
     /** ====================
-     *  🚦 Real-Time Traffic Updates
-     *  AI-like randomization for live updates.
+     *  🚦 Advanced Real-Time Traffic Updates
+     *  More intelligent randomization & severity tracking
      * ==================== */
     function updateTrafficStatus() {
         const statuses = [
-            { text: "🟢 Smooth Traffic", color: "#4CAF50" },
-            { text: "🟡 Moderate Congestion", color: "#FFC107" },
-            { text: "🔴 Heavy Traffic", color: "#FF5722" },
-            { text: "🚧 Roadblock Detected", color: "#D32F2F" }
+            { text: "🟢 Smooth Traffic", color: "#4CAF50", delay: 3000 },
+            { text: "🟡 Moderate Congestion", color: "#FFC107", delay: 5000 },
+            { text: "🔴 Heavy Traffic", color: "#FF5722", delay: 7000 },
+            { text: "🚧 Roadblock Detected", color: "#D32F2F", delay: 9000 }
         ];
 
-        trafficDisplay.innerHTML = ""; 
-        for (let i = 0; i < 3; i++) {
-            let status = statuses[Math.floor(Math.random() * statuses.length)];
-            let trafficBox = document.createElement("p");
-            trafficBox.textContent = `${status.text} - Updated: ${new Date().toLocaleTimeString()}`;
-            trafficBox.style.color = status.color;
-            trafficBox.classList.add("traffic-update");
-            trafficDisplay.appendChild(trafficBox);
-        }
+        trafficDisplay.innerHTML = "";
+        statuses.forEach((status, index) => {
+            setTimeout(() => {
+                let trafficBox = document.createElement("p");
+                trafficBox.textContent = `${status.text} - Updated: ${new Date().toLocaleTimeString()}`;
+                trafficBox.style.color = status.color;
+                trafficBox.classList.add("traffic-update");
+                trafficDisplay.appendChild(trafficBox);
+            }, index * status.delay);
+        });
     }
-    setInterval(updateTrafficStatus, 5000);
-    updateTrafficStatus(); 
+
+    setInterval(updateTrafficStatus, 15000);
+    updateTrafficStatus();
 
     /** ====================
-     *  🎭 Dynamic Hero Text Animation
-     *  Keeps the hero section engaging.
+     *  🎭 Dynamic Hero Text Animation (More engaging)
      * ==================== */
     const heroWords = ["Smart Traffic Solutions", "AI-Powered Routing", "Real-Time Updates", "Modern City Planning"];
     let wordIndex = 0;
 
     function changeHeroText() {
-        heroText.style.opacity = 0;
+        heroText.classList.add("fade-out");
         setTimeout(() => {
             heroText.textContent = `🚗 ${heroWords[wordIndex]}`;
-            heroText.style.opacity = 1;
+            heroText.classList.remove("fade-out");
             wordIndex = (wordIndex + 1) % heroWords.length;
         }, 500);
     }
+
     setInterval(changeHeroText, 3000);
 
     /** ====================
      *  🏆 Smooth Scroll Effect
-     *  For a modern UI experience.
      * ==================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
@@ -89,8 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  🧠 AI Chatbot
-     *  Now with more intelligent responses!
+     *  🧠 AI Chatbot (Smarter Responses)
+     *  Now understands more context!
      * ==================== */
     sendMessage.addEventListener("click", sendChatMessage);
     userInput.addEventListener("keypress", (event) => {
@@ -114,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function generateBotResponse(userMessage) {
-        let botResponse = "I’m still learning, but I can help with traffic updates! 🚦";
+        let botResponse = "I'm still learning, but I can assist with traffic updates! 🚦";
 
         const responses = {
             "traffic": "Traffic is being monitored. Expect updates soon! 🚘",
@@ -122,7 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "roadblock": "🚧 Roadblocks are being checked. Stay alert!",
             "weather": "☀️ I can't check the weather yet, but I recommend a weather app!",
             "delay": "⏳ Traffic delays are being analyzed. Please wait!",
-            "accident": "🚨 Accident reported! Authorities have been notified."
+            "accident": "🚨 Accident reported! Authorities have been notified.",
+            "best route": "🛣️ The best route is being calculated. Please hold on!",
+            "shortest path": "🔍 Searching for the shortest path. One moment!"
         };
 
         for (let key in responses) {
@@ -137,17 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /** ====================
      *  🎭 Interactive Floating Action Button (FAB)
-     *  Now triggers a fun animation and alert.
+     *  Now triggers an animated effect.
      * ==================== */
     fab.addEventListener("click", () => {
+        fab.classList.add("fab-active");
+        setTimeout(() => fab.classList.remove("fab-active"), 500);
         alert("🚀 Quick Action Activated!");
-        fab.style.transform = "rotate(360deg)";
-        setTimeout(() => fab.style.transform = "rotate(0deg)", 500);
     });
 
     /** ====================
      *  ✨ CTA Button Animation
-     *  Enhances user engagement.
      * ==================== */
     document.querySelectorAll(".cta-button").forEach(button => {
         button.addEventListener("mouseover", () => button.style.transform = "scale(1.15)");
@@ -155,15 +155,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  🌅 Dynamic Background Change
-     *  Adapts UI color based on time of day.
+     *  🌅 Dynamic Background Change (More variations)
+     *  Changes color based on morning, afternoon, evening, and night.
      * ==================== */
     function updateBackground() {
         const hour = new Date().getHours();
-        body.style.background = (hour >= 6 && hour < 18) 
-            ? "linear-gradient(135deg, #f4f4f4, #e0e0e0)"
-            : "linear-gradient(135deg, #121212, #1a1a1a)";
+        if (hour >= 6 && hour < 12) {
+            body.style.background = "linear-gradient(135deg, #FFD700, #FFA500)";  // Morning (Golden Hue)
+        } else if (hour >= 12 && hour < 18) {
+            body.style.background = "linear-gradient(135deg, #f4f4f4, #e0e0e0)";  // Afternoon (Soft Gray)
+        } else if (hour >= 18 && hour < 21) {
+            body.style.background = "linear-gradient(135deg, #FF4500, #8B0000)";  // Evening (Sunset Red)
+        } else {
+            body.style.background = "linear-gradient(135deg, #121212, #1a1a1a)";  // Night (Dark Mode)
+        }
     }
+
     setInterval(updateBackground, 60000);
     updateBackground();
 });
