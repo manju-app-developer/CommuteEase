@@ -32,7 +32,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>🚗 Revolutionizing Traffic Management</h2>
+            <h2 id="hero-text">🚗 Revolutionizing Traffic Management</h2>
             <p>AI-powered traffic control for a smarter city experience.</p>
             <button class="cta-button">Explore Features 🚀</button>
         </div>
@@ -76,10 +76,17 @@
         </div>
     </section>
 
-    <!-- AI Chatbot Section -->
+    <!-- AI Chatbot Section (Now Overlaid Like Instagram DM) -->
     <section id="chatbot" class="chatbot">
         <h2>🤖 AI Traffic Assistant</h2>
-        <div class="chatbox-container">
+        <button class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i> Chat
+        </button>
+        <div class="chatbox-container hidden">
+            <div class="chat-header">
+                <h3>AI Assistant</h3>
+                <button class="close-chat" onclick="toggleChat()">✖</button>
+            </div>
             <div class="chatbox">
                 <p><strong>Bot:</strong> Hello! Ask me about live traffic updates.</p>
             </div>
