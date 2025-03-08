@@ -270,3 +270,22 @@ footer {
         padding: 14px 28px;
     }
     }
+/* Ensure chatbot does not overlap important sections */
+.contact-section {
+    padding-bottom: 150px; /* Increased bottom padding to prevent overlap */
+}
+
+.traffic-display {
+    margin-bottom: 120px; /* Extra margin to keep traffic updates visible */
+}
+
+.chatbox {
+    bottom: 30px; /* Adjust chatbot position if needed */
+    max-height: 300px; /* Prevents overflow */
+    overflow-y: auto;
+}
+
+/* Smooth transition for chatbot */
+.chatbox p {
+    transition: all 0.3s ease-in-out;
+}
