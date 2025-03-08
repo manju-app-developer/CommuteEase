@@ -5,39 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Traffic Management</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
+    <!-- Navigation Bar -->
     <header>
         <h1>🚦 Smart Traffic Management System</h1>
+        <button id="toggle-mode">🌙 Dark Mode</button>
     </header>
 
-    <!-- Live Traffic Map -->
-    <div id="map-container">
-        <div id="map"></div>
-        <div id="traffic-info">
-            <h2>🔴 Live Traffic Insights</h2>
-            <p>Check congestion and get optimized routes in real-time.</p>
-            <button onclick="optimizeRoute()">🚗 Find Best Route</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>🚗 Revolutionizing Traffic Management</h2>
+            <p>Experience advanced, intelligent, and modern traffic solutions.</p>
+            <button class="cta-button">Explore Features 🚀</button>
         </div>
-    </div>
+    </section>
 
-    <!-- User Report Section -->
-    <div id="report-section">
-        <h2>📢 Report a Traffic Issue</h2>
-        <input type="text" id="location" placeholder="Enter location">
-        <select id="issue-type">
-            <option value="accident">🚨 Accident</option>
-            <option value="construction">🚧 Road Work</option>
-            <option value="congestion">🚦 Heavy Traffic</option>
-        </select>
-        <button onclick="reportIssue()">Submit Report</button>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Smart Traffic Management. All Rights Reserved.</p>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
 
 </body>
