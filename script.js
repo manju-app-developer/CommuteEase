@@ -1,41 +1,70 @@
-// Initialize Map
-var map = L.map('map').setView([12.9716, 77.5946], 13); // Default to Bangalore
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-// Sample Traffic Data (For Demo)
-var trafficData = [
-    { lat: 12.9721, lng: 77.5933, type: "High Congestion" },
-    { lat: 12.9755, lng: 77.5985, type: "Medium Congestion" },
-    { lat: 12.9780, lng: 77.5900, type: "Accident Reported" }
-];
-
-// Add Traffic Markers
-trafficData.forEach(point => {
-    let color = point.type.includes("High") ? "red" : "orange";
-    L.circleMarker([point.lat, point.lng], {
-        radius: 8,
-        color: color,
-        fillOpacity: 0.8
-    }).addTo(map).bindPopup(`🚦 Traffic: ${point.type}`);
+// Dark Mode Toggle
+const toggleMode = document.getElementById("toggle-mode");
+toggleMode.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    toggleMode.textContent = document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
 });
 
-// Function to Optimize Route (Basic Alert for Now)
-function optimizeRoute() {
-    alert("🚗 Route Optimization Coming Soon!");
+// Live Time Traffic Simulation
+function updateTrafficStatus() {
+    const trafficBoxes = document.querySelectorAll(".traffic-box");
+    const statuses = ["Smooth Traffic", "Moderate Congestion", "Heavy Traffic", "Roadblock Detected"];
+    const colors = ["#4CAF50", "#FFC107", "#FF5722", "#D32F2F"];
+
+    trafficBoxes.forEach((box) => {
+        let randomIndex = Math.floor(Math.random() * statuses.length);
+        box.innerHTML = `
+            <h3>${statuses[randomIndex]}</h3>
+            <p>Status updated: ${new Date().toLocaleTimeString()}</p>
+        `;
+        box.style.backgroundColor = colors[randomIndex];
+    });
 }
 
-// Function to Report Traffic Issue
-function reportIssue() {
-    let location = document.getElementById("location").value;
-    let issueType = document.getElementById("issue-type").value;
-    
-    if (location === "") {
-        alert("📍 Please enter a location!");
-        return;
-    }
-    
-    alert(`✅ Issue reported: ${issueType} at ${location}`);
+// Auto Update Traffic Every 5 Seconds
+setInterval(updateTrafficStatus, 5000);
+updateTrafficStatus(); // Initial Call
+
+// Smooth Scroll Animation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+// Button Hover Animation
+document.querySelectorAll(".cta-button").forEach(button => {
+    button.addEventListener("mouseover", () => {
+        button.style.transform = "scale(1.1)";
+    });
+    button.addEventListener("mouseleave", () => {
+        button.style.transform = "scale(1)";
+    });
+});
+
+// Dynamic Hero Text Effect
+const heroText = document.getElementById("hero-text");
+const words = ["Traffic Management", "Smart City Optimization", "AI-Powered Routing", "Real-Time Updates"];
+let wordIndex = 0;
+
+function changeHeroText() {
+    heroText.textContent = words[wordIndex];
+    wordIndex = (wordIndex + 1) % words.length;
 }
+setInterval(changeHeroText, 3000);
+
+// Fade-in Effect on Scroll
+const fadeElements = document.querySelectorAll(".fade-in");
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+fadeElements.forEach(element => observer.observe(element));
