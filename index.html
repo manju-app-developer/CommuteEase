@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Traffic Management</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <header>
-        <h1>🚦 Smart Traffic Management System</h1>
-        <nav>
+        <div class="logo">
+            <h1>🚦 Smart Traffic</h1>
+        </div>
+        <nav class="nav-links">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
@@ -21,13 +24,16 @@
             </ul>
         </nav>
         <button id="toggle-mode">🌙 Dark Mode</button>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>🚗 Revolutionizing Traffic Management</h2>
-            <p>Experience advanced, intelligent, and modern traffic solutions.</p>
+            <p>AI-powered traffic control for a smarter city experience.</p>
             <button class="cta-button">Explore Features 🚀</button>
         </div>
     </section>
@@ -35,45 +41,60 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <h2>🚀 Advanced Features</h2>
-        <div class="feature-box">
-            <h3>🛣️ AI-Powered Traffic Control</h3>
-            <p>Real-time traffic optimization using smart AI algorithms.</p>
-        </div>
-        <div class="feature-box">
-            <h3>📊 Data-Driven Insights</h3>
-            <p>Get detailed analytics for traffic patterns and congestion levels.</p>
-        </div>
-        <div class="feature-box">
-            <h3>🛰️ Smart GPS Route Optimization</h3>
-            <p>Reduce travel time with intelligent route suggestions.</p>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h3>🛣️ AI-Powered Traffic Control</h3>
+                <p>Real-time traffic optimization with smart AI algorithms.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📊 Data-Driven Insights</h3>
+                <p>Get detailed analytics on traffic patterns and congestion.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🛰️ Smart GPS Route Optimization</h3>
+                <p>Reduce travel time with intelligent route suggestions.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Live Traffic Updates Section (Simulated UI) -->
+    <!-- Live Traffic Updates Section -->
     <section id="live-traffic" class="live-traffic">
         <h2>🚦 Live Traffic Updates</h2>
         <div class="traffic-display">
-            <p>🔴 High Traffic at Junction 5</p>
-            <p>🟡 Moderate Traffic at Highway 2</p>
-            <p>🟢 Smooth Flow at City Center</p>
+            <div class="traffic-box">
+                <h3>🔴 Heavy Traffic at Junction 5</h3>
+                <p>Status updated: <span class="time">Loading...</span></p>
+            </div>
+            <div class="traffic-box">
+                <h3>🟡 Moderate Traffic at Highway 2</h3>
+                <p>Status updated: <span class="time">Loading...</span></p>
+            </div>
+            <div class="traffic-box">
+                <h3>🟢 Smooth Flow at City Center</h3>
+                <p>Status updated: <span class="time">Loading...</span></p>
+            </div>
         </div>
     </section>
 
     <!-- AI Chatbot Section -->
     <section id="chatbot" class="chatbot">
         <h2>🤖 AI Traffic Assistant</h2>
-        <div class="chatbox">
-            <p><strong>Bot:</strong> Hello! How can I assist with traffic updates?</p>
-            <input type="text" id="user-input" placeholder="Ask about traffic...">
-            <button id="send-message">Send</button>
+        <div class="chatbox-container">
+            <div class="chatbox">
+                <p><strong>Bot:</strong> Hello! Ask me about live traffic updates.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask about traffic...">
+                <button id="send-message">Send</button>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>📞 Get in Touch</h2>
-        <p>Email: support@smarttraffic.com</p>
-        <p>Phone: +123 456 7890</p>
+        <p>Email: <a href="mailto:support@smarttraffic.com">support@smarttraffic.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
     </section>
 
     <!-- Footer -->
@@ -82,6 +103,5 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
