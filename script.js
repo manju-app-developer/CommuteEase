@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const userInput = document.getElementById("user-input");
     const sendMessage = document.getElementById("send-message");
     const fab = document.querySelector(".fab");
+    const contactSection = document.querySelector(".contact-section");
 
     /** ====================
-     *  🌙 Dark Mode Toggle (Enhanced)
-     *  Smooth transition & refined styles
+     * 🌙 Dark Mode Toggle
      * ==================== */
     function enableDarkMode() {
         body.classList.add("dark-mode");
@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  🚦 Advanced Real-Time Traffic Updates
-     *  More intelligent randomization & severity tracking
+     * 🚦 Traffic Updates
      * ==================== */
     function updateTrafficStatus() {
         const statuses = [
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTrafficStatus();
 
     /** ====================
-     *  🎭 Dynamic Hero Text Animation (More engaging)
+     * 🎭 Hero Text Animation
      * ==================== */
     const heroWords = ["Smart Traffic Solutions", "AI-Powered Routing", "Real-Time Updates", "Modern City Planning"];
     let wordIndex = 0;
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(changeHeroText, 3000);
 
     /** ====================
-     *  🏆 Smooth Scroll Effect
+     * 🏆 Smooth Scroll Effect
      * ==================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
@@ -88,8 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  🧠 AI Chatbot (Smarter Responses)
-     *  Now understands more context!
+     * 🧠 AI Chatbot
      * ==================== */
     sendMessage.addEventListener("click", sendChatMessage);
     userInput.addEventListener("keypress", (event) => {
@@ -137,8 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /** ====================
-     *  🎭 Interactive Floating Action Button (FAB)
-     *  Now triggers an animated effect.
+     * 🎭 Floating Action Button (FAB)
      * ==================== */
     fab.addEventListener("click", () => {
         fab.classList.add("fab-active");
@@ -147,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  ✨ CTA Button Animation
+     * ✨ CTA Button Animation
      * ==================== */
     document.querySelectorAll(".cta-button").forEach(button => {
         button.addEventListener("mouseover", () => button.style.transform = "scale(1.15)");
@@ -155,19 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /** ====================
-     *  🌅 Dynamic Background Change (More variations)
-     *  Changes color based on morning, afternoon, evening, and night.
+     * 🌅 Dynamic Background Change
      * ==================== */
     function updateBackground() {
         const hour = new Date().getHours();
         if (hour >= 6 && hour < 12) {
-            body.style.background = "linear-gradient(135deg, #FFD700, #FFA500)";  // Morning (Golden Hue)
+            body.style.background = "linear-gradient(135deg, #FFD700, #FFA500)";  
         } else if (hour >= 12 && hour < 18) {
-            body.style.background = "linear-gradient(135deg, #f4f4f4, #e0e0e0)";  // Afternoon (Soft Gray)
+            body.style.background = "linear-gradient(135deg, #f4f4f4, #e0e0e0)";
         } else if (hour >= 18 && hour < 21) {
-            body.style.background = "linear-gradient(135deg, #FF4500, #8B0000)";  // Evening (Sunset Red)
+            body.style.background = "linear-gradient(135deg, #FF4500, #8B0000)";
         } else {
-            body.style.background = "linear-gradient(135deg, #121212, #1a1a1a)";  // Night (Dark Mode)
+            body.style.background = "linear-gradient(135deg, #121212, #1a1a1a)";
         }
     }
 
