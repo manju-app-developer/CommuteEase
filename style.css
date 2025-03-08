@@ -250,3 +250,23 @@ footer {
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero h2 {
+        font-size: 36px;
+    }
+    .cta-button {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+    }
